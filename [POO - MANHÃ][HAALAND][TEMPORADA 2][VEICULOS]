@@ -1,0 +1,103 @@
+   <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <script src="classes.js"></script>
+        <script src="teste.js"></script>
+    </body>
+
+    </html>
+
+
+
+
+
+
+
+
+
+class Veiculo {
+       constructor(fabricante, modelo, qtdPortas, qtdPassageiros, volumeDePortaMalas, tipoDeCombustivel, qtdPneus) {
+        this.fabricante = fabricante;
+        this.modelo = modelo;
+        this.qtdPortas = qtdPortas;
+        this.qtdPassageiros = qtdPassageiros;
+        this.volumeDePortaMalas = volumeDePortaMalas;
+        this.tipoDeCombustivel = tipoDeCombustivel;
+        this.qtdPneus = qtdPneus;
+    }
+}
+class Carro extends Veiculo {
+    constructor(fabricante, modelo, qtdPassageiros, qtdPortas, volumeDePortaMalas, tipoDeCombustivel) {
+        super(fabricante, modelo, tipoDeCombustivel)
+        this.qtdPassageiros = qtdPassageiros;
+        this.volumeDePortaMalas = volumeDePortaMalas;
+        this.qtdPortas = qtdPortas
+
+
+    }
+}
+class Moto extends Veiculo {
+    constructor(fabricante, modelo, qtdPassageiros, tipoDeCombustivel) {
+        super(fabricante, modelo, tipoDeCombustivel)
+        this.qtdPassageiros = qtdPassageiros;
+
+
+
+    }
+}
+class Onibus extends Veiculo {
+    constructor(fabricante, modelo, qtdPassageiros, tipoDeCombustivel, qtdPneus, qtdPortas, volumeDePortaMalas) {
+        super(fabricante, modelo, tipoDeCombustivel, volumeDePortaMalas)
+        this.qtdPassageiros = qtdPassageiros;
+        this.qtdPneus = qtdPneus;
+        this.qtdPortas = qtdPortas;
+    }
+}
+
+class Jetski extends Veiculo {
+    constructor(fabricante, modelo, qtdPassageiros, tipoDeCombustivel) {
+        super(fabricante, modelo,)
+        this.qtdPassageiros = qtdPassageiros;
+        this.tipoDeCombustivel = tipoDeCombustivel;
+    }
+
+}
+
+
+class EstoqueDeVeiculos {
+    constructor() {
+        this.listaDeVeiculos = []
+    }
+    adicionarVeiculo(veiculo) {
+        if ((veiculo instanceof Veiculo) && !(veiculo instanceof Jetski)) {
+            this.listaDeVeiculos.push(veiculo)
+        }
+        else {
+            console.error('Não é veiculo fera')
+        }
+    }
+}
+
+
+
+
+
+
+
+let carro1 = new Carro('Toyta', ' Supra Mk4', 3, 2, ' 6.5 cu-ft / 185 L ', 'Gasolina',)
+let moto1 = new Moto('Honda', 'XRE 300 sahara', 2, 'Flex',)
+let onibus1 = new Onibus('Mercedes', 'bens 1418', 38, 2, 'CMT 23000', 'Diesel', 42)
+let jetski1 = new Jetski('Yamaha', 'Fx Cruise', 2, ' 116 litris', 'Diesel')
+
+let HaalandCars = new EstoqueDeVeiculos();
+HaalandCars.adicionarVeiculo(carro1);
+HaalandCars.adicionarVeiculo(moto1);
+HaalandCars.adicionarVeiculo(onibus1);
+HaalandCars.adicionarVeiculo(jetski1);
