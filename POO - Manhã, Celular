@@ -1,0 +1,91 @@
+                         INDEX.HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="classes.js"> </script>
+    <script src="teste.js"> </script>
+    
+</body>
+</html>
+
+
+
+
+                      CLASSES.JS
+ 
+class Produto{
+    constructor(descricao,precoUnitario,fabricante){
+        this.descricao = descricao;
+        this.precoUnitario = precoUnitario;
+        this.fabricante = fabricante;
+    }
+}
+
+class Celular extends Produto{
+    constructor(descricao,fabricante,precoUnitario,armazenamento,ram,processador,tamanhoDaTela){
+        super(descricao,fabricante,precoUnitario)
+        this.ram = ram;
+        this.processador = processador;
+        this.armazenamento = armazenamento;
+        this.tamanhoDaTela = tamanhoDaTela;
+    }
+}
+
+class CaixaDeSom extends Produto{
+    constructor(descricao,fabricante,precoUnitario,temLed,potencia,dimensoes){
+        super(descricao,precoUnitario,fabricante)
+        this.dimensoes = dimensoes;
+        this.potencia = potencia;
+        this.temLed = temLed;
+    }
+}
+
+class Estoque{
+    constructor(){
+        this.listaDeProdutos = []
+    }
+
+    adicionarProduto(produto){
+        if(produto instanceof Produto){
+        this.listaDeProdutos.push(produto)
+        } else{
+            console.error(`A entrada não é da classe Produto`)
+        }
+    }
+}                 
+
+
+
+
+
+
+
+
+
+                                 TESTE.JS
+
+let celular1 = new Celular ('Realme C33', ' Realme', 1333.90, '128GB', 'Android' , '6.72 Polégads');
+let celular2 = new Celular ('Moto G9 plus', 'Motorola', 1736, '128GB', 'Iphone', '6.8" e resolução de 1080px x 2400px.');
+let celular3 = new Celular ('');
+
+let som1  = new CaixaDeSom ('Riomartec', 'Caixa De Som Bluetooth GRASEP ', 184.90, 'Sim', '20 walts');
+let som2  = new CaixaDeSom ('');
+
+let estoque = new Estoque()
+
+estoque.adicionarProduto(celular1);
+estoque.adicionarProduto(celular2);
+estoque.adicionarProduto(celular3);
+
+estoque.adicionarProduto(som1);
+estoque.adicionarProduto(som2);
+
+estoque.adicionarProduto('Meu parceiro, não é um aparelho que si encaixe ')
+
+console.log(estoque)
